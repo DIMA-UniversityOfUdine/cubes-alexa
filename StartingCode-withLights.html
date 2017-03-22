@@ -43,7 +43,7 @@
 			camera.position.set(2,2,2);
 			camera.lookAt( new THREE.Vector3(0,0,0));
 			
-			var geometry = new THREE.BoxGeometry(1,1,1);
+			var geometry = new THREE.BoxGeometry(1,3,1);
 			var texture = THREE.ImageUtils.loadTexture('textures/fur.jpg');
 			var material = new THREE.MeshPhongMaterial( { map: texture } );
 			var cube = new THREE.Mesh( geometry, material );
