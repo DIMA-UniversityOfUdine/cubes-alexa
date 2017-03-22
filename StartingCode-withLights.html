@@ -47,10 +47,13 @@
 			var texture = THREE.ImageUtils.loadTexture('textures/fur.jpg');
 			var material = new THREE.MeshPhongMaterial( { map: texture } );
 			var cube = new THREE.Mesh( geometry, material );
+			var cube1 = new THREE.Mesh( geometry, material );
+			cube1.position.set(3,3,-3);
 			cube.castShadow = true;
 			cube.receiveShadow = true;
 			
 			scene.add( cube );
+			scene.add( cube1 );
 			
 			hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
 			hemiLight.color.setHSL( 0.6, 1, 0.6 );
