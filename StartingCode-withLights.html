@@ -43,18 +43,312 @@
 			camera.position.set(2,2,2);
 			camera.lookAt( new THREE.Vector3(0,0,0));
 			
-			var geometry = new THREE.BoxGeometry(1,5,1);
+			var geometry = new THREE.BoxGeometry(1,1,1);
 			var texture = THREE.ImageUtils.loadTexture('textures/fur.jpg');
 			var material = new THREE.MeshPhongMaterial( { map: texture } );
 			var cube = new THREE.Mesh( geometry, material );
-			var geometry1 = new THREE.BoxGeometry(1,1,1);
-			var cube1 = new THREE.Mesh( geometry1, material );
-			cube1.position.set(1, 1,-3);
+			var cube1 = cube.clone();
+			var cube2 = cube.clone();
+			var cube3 = cube.clone();
+			var cube4 = cube.clone();
+			var cube5 = cube.clone();			
+			
+			
+			
+			cube.position.y += 1;
+			cube.scale.x = 3;
+			cube.scale.y = 3;
+			cube.scale.z = 3;
+			
+			cube1.position.y += 4;
+			cube1.scale.x = 3;
+			cube1.scale.y = 3;
+			cube1.scale.z = 3;
+			
+			cube2.position.set (-1, 0, 2) ;
+			
+			cube3.position.set (1, 0, 2) ;
+
+			cube4.position.set (-1, 1, 2) ;
+			cube4.position.y += -0.25;
+			cube4.position.z += -0.25;
+			cube4.scale.set (0.75, 0.5, 0.5);
+			
+			cube5.position.set (1, 1, 2) ;
+			cube5.position.y += -0.25;
+			cube5.position.z += -0.25;
+			cube5.scale.set (0.75, 0.5, 0.5);
+
+            		var cube6 = new THREE.Mesh( geometry, material );
+			cube6.position.x += 1.75;
+			cube6.position.y += 2;
+			cube6.scale.set (0.5, 1, 3);
+			
+			var cube7 = cube6.clone();
+			cube7.position.y += 1;
+			
+			var cube8 = cube7.clone();
+			cube8.position.y += 1;
+			
+			var cube9 = cube8.clone();
+			cube9.position.y += 0.7;
+			cube9.position.x += -0.1;
+			cube9.scale.set (0.4, 0.4, 3);
+			
+			
+			var cube10 = cube9.clone();
+			cube10.position.y += 0.3;
+			cube10.position.x += -0.05;
+			cube10.scale.set (0.25, 0.25, 3);
+			
+			var cube11 = cube9.clone();
+			cube11.position.y += 0.55;
+			cube11.position.x += -0.13;
+			cube11.scale.set (0.25, 0.25, 3);
+			
+			var cube12 = new THREE.Mesh( geometry, material );
+			cube12.position.y += 5.75;
+			cube12.position.z += 0.25;
+			cube12.scale.set (2.5, 0.5, 3);
+			
+			var cube13 = cube12.clone();
+			cube13.position.y += 0.5;
+			cube13.position.z += 1;
+			cube13.scale.set (0.8, 0.5, 2);
+			
+			var cube14 = cube13.clone();
+			cube14.position.y += 0.5;
+			cube14.scale.set (1.5, 0.75, 3);
+			
+			
+			var cube15 = cube14.clone();
+			cube15.position.y += 0.75;
+			cube15.scale.set (2, 1, 3);
+			
+			var cube16 = new THREE.Mesh( geometry, material );
+			cube16.position.z += 3;
+			cube16.position.y += 7.25;
+			cube16.scale.y = 1.25;
+			cube16.scale.z = 0.5;
+			
+			var cube17 = cube16.clone();
+			cube17.position.z += 0.5;
+			cube17.position.y -= 0.25;
+			cube17.scale.y -= 0.5;
+			
+			var materialBlack = new THREE.MeshBasicMaterial( { color: 0x000000 } );
+			var cube18 = new THREE.Mesh( geometry, materialBlack );
+			cube18.position.z += 3.5;
+			cube18.position.y += 7.6;
+			cube18.scale.set (0.5, 0.5, 0.5);
+			
+			var materialWhite = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+			var cube19 = new THREE.Mesh( geometry, materialWhite );
+			cube19.position.z += 2.5;
+			cube19.position.y += 8.15;
+			cube19.position.x += 0.75;
+			cube19.scale.set (0.35, 0.35, 0.35);
+			
+			
+			var cube20 = new THREE.Mesh( geometry, materialWhite );
+			cube20.position.z += 2.5;
+			cube20.position.y += 8.15;
+			cube20.position.x += -0.75;
+			cube20.scale.set (0.35, 0.35, 0.35);
+			
+			var cube21 = new THREE.Mesh( geometry, materialBlack );
+			cube21.position.z += 2.7;
+			cube21.position.y += 8.15;
+			cube21.position.x += 0.85;
+			cube21.scale.set (0.2, 0.15, 0.1);
+			
+			var cube22 = new THREE.Mesh( geometry, materialBlack );
+			cube22.position.z += 2.7;
+			cube22.position.y += 8.15;
+			cube22.position.x += -0.85;
+			cube22.scale.set (0.2, 0.15, 0.1);
+			
+			var cube23 = cube21.clone();
+			cube23.rotation.y +=  270 * Math.PI/180;
+			cube23.position.x += 0.075;
+			cube23.position.z -= 0.1;
+			
+			var cube24 = cube22.clone();
+			cube24.rotation.y +=  270 * Math.PI/180;
+			cube24.position.x -= 0.075;
+			cube24.position.z -= 0.1;
+			
+			var cube25 = new THREE.Mesh( geometry, material );
+			cube25.position.y += 8;
+			cube25.position.z += 1.15;
+			cube25.scale.set (1.2, 1, 3.25);
+			
+			var cube26 = new THREE.Mesh( geometry, material );
+			cube26.position.y += 8;
+			cube26.position.z += 1;
+			cube26.position.x += 1;
+			cube26.scale.set (1, 1, 2.75);
+			
+			var cube27 = new THREE.Mesh( geometry, material );
+			cube27.position.y += 8;
+			cube27.position.z += 1;
+			cube27.position.x -= 1;
+			cube27.scale.set (1, 1, 2.75);
+			
+			var cube28 = new THREE.Mesh( geometry, material );
+			cube28.position.y += 8.75;
+			cube28.position.z += 1;
+			cube28.scale.set (2, 0.5, 2.75);
+			
+			var cube29 = cube28.clone();
+			cube29.position.x += 1;
+			cube29.position.y -= 0.15;
+			cube29.scale.set (0.75, 0.35, 2.75);
+			
+			var cube30 = cube28.clone();
+			cube30.position.x -= 1;
+			cube30.position.y -= 0.15;
+			cube30.scale.set (0.75, 0.35, 2.75);
+			
+			var cube31 = cube26.clone();
+			cube31.position.x += 0.65;
+			cube31.scale.set (0.35, 1, 1);
+			
+			var cube32 = cube27.clone();
+			cube32.position.x -= 0.65;
+			cube32.scale.set (0.35, 1, 1);
+			
+			var cube33 = new THREE.Mesh( geometry, material );
+			cube33.position.x -= 1.75;
+			cube33.position.y += 2;
+			cube33.scale.set (0.5, 1, 3);
+			
+			var cube34 = cube33.clone();
+			cube34.position.y += 1;
+			
+			var cube35 = cube34.clone();
+			cube35.position.y += 1;
+			
+			var cube36 = cube35.clone();
+			cube36.position.y += 0.7;
+			cube36.position.x += 0.1;
+			cube36.scale.set (0.4, 0.4, 3);
+			
+			
+			var cube37 = cube36.clone();
+			cube37.position.y += 0.3;
+			cube37.position.x += 0.05;
+			cube37.scale.set (0.25, 0.25, 3);
+			
+			var cube38 = cube36.clone();
+			cube38.position.y += 0.55;
+			cube38.position.x += 0.13;
+			cube38.scale.set (0.25, 0.25, 3);
+			
+			var cube39 = new THREE.Mesh( geometry, material );
+			cube39.position.z -= 2;
+			cube39.scale.set (3, 3, 1);
+			
+			var cube40 = cube39.clone();
+			cube40.position.y += 2;
+			
+			var cube41 = cube40.clone();
+			cube41.position.y += 2;
+			cube41.scale.x -= 0.5;
+			cube41.scale.y -= 0.5;
+			
+			var cube42 = new THREE.Mesh( geometry, material );
+			cube42.position.z -= 3;
+			cube42.scale.set (2, 2, 1);
+			
+			var cube43 = cube42.clone();
+			cube43.position.y += 2;
+			
+			var cube44 = cube43.clone();
+			cube44.position.y += 1.5;
+			cube44.scale.x -= 0.5;
+			cube44.scale.y -= 0.5;
+			
+			var cube45 = new THREE.Mesh( geometry, material );
+			cube45.position.z -= 3.75;
+			cube45.position.y += 1.5;
+			cube45.scale.set (2, 2, 0.5);
+			
+			var cube46 = new THREE.Mesh( geometry, material );
+			cube46.position.z -= 4.25;
+			cube46.position.y += 1.5;
+			cube46.scale.set (1, 1, 0.75);
+			
+			var cube47 = cube46.clone();
+			cube47.position.z -= 0.5;
+			cube47.position.y += 0.5;
+			
+			var cube48 = cube47.clone();
+			cube48.position.z -= 0.5;
+			cube48.position.y += 0.5;
+			cube48.scale.x -= 0.25;
+			cube48.scale.y -= 0.25;
+			cube48.scale.z -= 0.25;
+			
+			var cube49 = cube48.clone();
+			cube49.position.z -= 0.25;
+			cube49.position.y += 0.5;
+			
+			var cube50 = cube49.clone();
+			cube50.position.z -= 0.15;
+			cube50.position.y += 0.5;
+			cube50.scale.x -= 0.15;
+			cube50.scale.y -= 0.15;
+			cube50.scale.z -= 0.15;
+			
+			var cube51 = cube50.clone();
+			cube50.position.z -= 0.15;
+			cube50.position.y += 0.5;
+			cube50.scale.x -= 0.15;
+			cube50.scale.y -= 0.15;
+			cube50.scale.z -= 0.15;
+			
 			cube.castShadow = true;
 			cube.receiveShadow = true;
 			
 			scene.add( cube );
 			scene.add( cube1 );
+			scene.add( cube2 );
+			scene.add( cube3 );
+			scene.add( cube4 );
+			scene.add( cube5 );
+			scene.add( cube6 );
+			scene.add( cube7 );
+			scene.add( cube8 );
+			scene.add( cube9 );
+			scene.add( cube10 );
+			scene.add( cube11 );
+			scene.add( cube12 );
+			scene.add( cube13 );
+			scene.add( cube14 );
+			scene.add( cube15 );
+			scene.add( cube16 );
+			scene.add( cube17 );
+			scene.add( cube18 );
+			scene.add( cube19 );
+			scene.add( cube20 );
+			scene.add( cube21, cube22, cube23, cube24 );
+			scene.add( cube25, cube26, cube27, cube28 );
+			scene.add( cube29, cube30, cube31, cube32 );
+			scene.add( cube33, cube34, cube35, cube36, cube37, cube38 );
+			scene.add( cube39 );
+			scene.add( cube40 );
+			scene.add( cube41 );
+			scene.add( cube42 );
+			scene.add( cube43 );
+			scene.add( cube44 );
+			scene.add( cube45 );
+			scene.add( cube46 );
+			scene.add( cube47 );
+			scene.add( cube48 );
+			scene.add( cube49 );
+			scene.add( cube50 );
+			scene.add( cube51 );
 			
 			hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
 			hemiLight.color.setHSL( 0.6, 1, 0.6 );
