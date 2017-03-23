@@ -24,9 +24,10 @@
 	<body>
 		
 		<script>
-		
-		var scene, camera, renderer, controls, stats;
-		
+		// i cubi andranno messi qui così che possano essere visibili da Update
+		var cube, scene, camera, renderer, controls, stats;
+		var c, v; // c = counter che verrà usato per l'animazione; v = verso (valore 1 o -1)
+			
 		function Start() {
 			scene = new THREE.Scene();
 			camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -43,10 +44,13 @@
 			camera.position.set(2,2,2);
 			camera.lookAt( new THREE.Vector3(0,0,0));
 			
+			c = 10; // per ora 10, ma in caso verrà cambiato
+			v = 1;
+			
 			var geometry = new THREE.BoxGeometry(1,5,1);
 			var texture = THREE.ImageUtils.loadTexture('textures/fur.jpg');
 			var material = new THREE.MeshPhongMaterial( { map: texture } );
-			var cube = new THREE.Mesh( geometry, material );
+			cube = new THREE.Mesh( geometry, material );
 			var geometry1 = new THREE.BoxGeometry(1,1,1);
 			var cube1 = new THREE.Mesh( geometry1, material );
 			cube1.position.set(1, 1,-3);
@@ -95,8 +99,24 @@
 			
 			
 		}
-		
+		// andra' rallentato 
+		function rotateCube(){
+			cube.rotation.x +=v * 0.5;
+			cube.rotation.y +=v * 0.5;
+			cube.rotation.z +=v * 0.5;
+		}	
+			
+		function switchSide(c){
+			c=c-1;
+			if(c<0){
+				v = v * (-1);
+				c = 10;
+			}
+		}
+			
+			
 		function Update() {
+			rotateCube();
 			requestAnimationFrame( Update );
 			controls.update();  
 			stats.update();
