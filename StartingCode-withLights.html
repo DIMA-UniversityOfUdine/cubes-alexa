@@ -25,12 +25,12 @@
 		
 		<script>
 		
-		var scene, camera, renderer, controls, stats;
-		
+		var cube46, cube53, cube58, scene, camera, renderer, controls, stats;
+		var c, v; // c = counter che verrà usato per l'animazione; v = verso (valore 1 o -1)
+
 		function Start() {
 			scene = new THREE.Scene();
 			camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
 			renderer = new THREE.WebGLRenderer( {antialias: true} );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			renderer.setClearColor( 0xf0f0f0 );
@@ -40,9 +40,12 @@
 			renderer.shadowMap.enabled = true;
 			document.body.appendChild( renderer.domElement );
 			
-			camera.position.set(2,2,2);
+			camera.position.set(2,2,15);
 			camera.lookAt( new THREE.Vector3(0,0,0));
-			
+						
+			c = 9; // per ora 10, ma in caso verrà cambiato
+			v = 1;
+
 			var geometry = new THREE.BoxGeometry(1,1,1);
 			var texture = THREE.ImageUtils.loadTexture('textures/fur.jpg');
 			var material = new THREE.MeshPhongMaterial( { map: texture } );
@@ -68,18 +71,53 @@
 			
 			// inizio zampe
 			cube2.position.set (-1, 0, 2) ;
+			cube2.scale.x += 0.5;
+			cube2.scale.z += 0.5;
+			
 			
 			cube3.position.set (1, 0, 2) ;
-
-			cube4.position.set (-1, 1, 2) ;
+			cube3.scale.x += 0.5;
+			cube3.scale.z += 0.5;
+			
+			var cube63 = new THREE.Mesh( geometry, material );
+			cube63.position.set (1, 1, 1.6);
+			cube63.scale.set (0.75, 1, 0.5);
+			
+			var cube64 = cube63.clone();
+			cube64.position.y += 1;
+			
+			var cube65 = cube64.clone();
+			cube65.position.y += 1;
+			
+			var cube69 = cube65.clone();
+			cube69.position.y += 0.75;
+			cube69.scale.z -= 0.25;
+			cube69.scale.y -= 0.25;
+			
+			var cube66 = new THREE.Mesh( geometry, material );
+			cube66.position.set (-1, 1, 1.6);
+			cube66.scale.set (0.75, 1, 0.5);
+			
+			var cube67 = cube66.clone();
+			cube67.position.y += 1;
+			
+			var cube68 = cube67.clone();
+			cube68.position.y += 1;
+			
+			var cube70 = cube68.clone();
+			cube70.position.y += 0.75;
+			cube70.scale.z -= 0.25;
+			cube70.scale.y -= 0.25;
+			
+			cube4.position.set (-1, 1, 2.15) ;
 			cube4.position.y += -0.25;
 			cube4.position.z += -0.25;
-			cube4.scale.set (0.75, 0.5, 0.5);
+			cube4.scale.set (1.25, 0.5, 1);
 			
-			cube5.position.set (1, 1, 2) ;
+			cube5.position.set (1, 1, 2.15) ;
 			cube5.position.y += -0.25;
 			cube5.position.z += -0.25;
-			cube5.scale.set (0.75, 0.5, 0.5);
+			cube5.scale.set (1.25, 0.5, 1);
 			//fine zampe
 			
 			
@@ -134,7 +172,7 @@
 			
 			var cube16 = new THREE.Mesh( geometry, material );
 			cube16.position.z += 3;
-			cube16.position.y += 7.25;
+			cube16.position.y += 7.25; //7.25
 			cube16.scale.y = 1.25;
 			cube16.scale.z = 0.5;
 			
@@ -185,47 +223,115 @@
 			cube24.position.x -= 0.075;
 			cube24.position.z -= 0.1;
 			
+			// tra gli occhi
 			var cube25 = new THREE.Mesh( geometry, material );
-			cube25.position.y += 8;
+			cube25.position.y += 8;   //8
 			cube25.position.z += 1.15;
-			cube25.scale.set (1.2, 1, 3.25);
+			cube25.scale.set (1.2, 0.75, 3.25);
 			
+			//cubo lato dx testa, dietro occhio
 			var cube26 = new THREE.Mesh( geometry, material );
-			cube26.position.y += 8;
-			cube26.position.z += 1;
-			cube26.position.x += 1;
-			cube26.scale.set (1, 1, 2.75);
+			cube26.position.y += 8.15;
+			cube26.position.z += 1.05;
+			cube26.position.x += 0.75;
+			cube26.scale.set (0.5, 0.35, 2.6);
 			
+			//cubo lato sx test, dietro occhio
 			var cube27 = new THREE.Mesh( geometry, material );
-			cube27.position.y += 8;
-			cube27.position.z += 1;
-			cube27.position.x -= 1;
-			cube27.scale.set (1, 1, 2.75);
+			cube27.position.y += 8.15;
+			cube27.position.z += 1.05;
+			cube27.position.x -= 0.75;
+			cube27.scale.set (0.5, 0.35, 2.6);
 			
+			//sopra centro testa
 			var cube28 = new THREE.Mesh( geometry, material );
-			cube28.position.y += 8.75;
+			cube28.position.y += 8.45;  //8.75
 			cube28.position.z += 1;
-			cube28.scale.set (2, 0.5, 2.75);
+			cube28.scale.set (1.2, 0.3, 2.6);
 			
+			var cube52 = cube28.clone();
+			cube52.position.y += 0.25;
+			cube52.scale.set (1.2, 0.2, 2);
+			
+			// sopra lato dx testa
 			var cube29 = cube28.clone();
-			cube29.position.x += 1;
+			cube29.position.x += 0.7;
 			cube29.position.y -= 0.15;
-			cube29.scale.set (0.75, 0.35, 2.75);
+			cube29.scale.set (0.25, 1, 2);
 			
+			// sopra lato sx testa
 			var cube30 = cube28.clone();
-			cube30.position.x -= 1;
+			cube30.position.x -= 0.7;
 			cube30.position.y -= 0.15;
-			cube30.scale.set (0.75, 0.35, 2.75);
+			cube30.scale.set (0.25, 1, 2);
+			
 			
 			//orecchio dx
-			var cube31 = cube26.clone();
-			cube31.position.x += 0.65;
-			cube31.scale.set (0.35, 1, 1);
+			
+			cube53 = new THREE.Mesh( geometry, material );
+			cube53.position.x += 0.9;
+			cube53.position.y += 8.5; 
+			cube53.position.z += 0.75; 
+			cube53.scale.set (0.3, 0.4, 0.5);
+			
+			
+			var cube31 = new THREE.Mesh( geometry, material );
+			cube31.position.x += 1;
+			cube31.position.y += 0.5;
+			cube31.scale.set(1, 0.5, 1.25);
+			
+			var cube54 = new THREE.Mesh( geometry, material );
+			cube54.position.x += 1.75;
+			cube54.position.y += 0.4;
+			cube54.scale.set(0.75, 0.3, 1.25);
+			
+			var cube55 = new THREE.Mesh( geometry, material );
+			cube55.position.x += 2;
+			cube55.position.y -= 0.75;
+			cube55.scale.set (0.75, 2 ,2);
+			
+			var cube56 = new THREE.Mesh( geometry, material );
+			cube56.position.x += 1.5;
+			cube56.position.y -= 1.85;
+			cube56.scale.set (0.5, 0.75 ,1.25);
+			
+			var cube57 = new THREE.Mesh( geometry, material );
+			cube57.position.x += 2.75;
+			cube57.position.y -= 0.45;
+			cube57.scale.set (0.75, 1 ,1);
 			
 			//orecchio sx
-			var cube32 = cube27.clone();
-			cube32.position.x -= 0.65;
-			cube32.scale.set (0.35, 1, 1);
+			cube58 = new THREE.Mesh( geometry, material );
+			cube58.position.x -= 0.9;
+			cube58.position.y += 8.5; 
+			cube58.position.z += 0.75; 
+			cube58.scale.set (0.3, 0.4, 0.5);
+			
+			var cube32 = new THREE.Mesh( geometry, material );
+			cube32.position.x -= 1;
+			cube32.position.y += 0.5;
+			cube32.scale.set(1, 0.5, 1.25);
+			
+			var cube59 = new THREE.Mesh( geometry, material );
+			cube59.position.x -= 1.75;
+			cube59.position.y += 0.4;
+			cube59.scale.set(0.75, 0.3, 1.25);
+			
+			var cube60 = new THREE.Mesh( geometry, material );
+			cube60.position.x -= 2;
+			cube60.position.y -= 0.75;
+			cube60.scale.set (0.75, 2 ,2);
+			
+			var cube61 = new THREE.Mesh( geometry, material );
+			cube61.position.x -= 1.5;
+			cube61.position.y -= 1.85;
+			cube61.scale.set (0.5, 0.75 ,1.25);
+			
+			var cube62 = new THREE.Mesh( geometry, material );
+			cube62.position.x -= 2.75;
+			cube62.position.y -= 0.45;
+			cube62.scale.set (0.75, 1 ,1);
+			
 			
 			//fine testa
 			
@@ -296,39 +402,52 @@
 			cube45.scale.set (2, 2, 0.5);
 			
 			//inizio coda cane
-			var cube46 = new THREE.Mesh( geometry, material ); 
+			cube46 = new THREE.Mesh( geometry, material ); 
 			cube46.position.z -= 4.25;
 			cube46.position.y += 1.5;
 			cube46.scale.set (1, 1, 0.75);
 			
-			var cube47 = cube46.clone();
-			cube47.position.z -= 0.5;
+			var cube47 = new THREE.Mesh( geometry, material );
+			cube47.position.z -= 0.75;
 			cube47.position.y += 0.5;
+			cube47.scale.x -= 0.15;
+			cube47.scale.y -= 0.15;
+			cube47.scale.z -= 0.15;
 			
-			var cube48 = cube47.clone();
+			var cube48 = new THREE.Mesh( geometry, material );
 			cube48.position.z -= 0.5;
-			cube48.position.y += 0.5;
+			cube48.position.y += 0.75;
 			cube48.scale.x -= 0.25;
 			cube48.scale.y -= 0.25;
 			cube48.scale.z -= 0.25;
 			
-			var cube49 = cube48.clone();
-			cube49.position.z -= 0.25;
-			cube49.position.y += 0.5;
+			/*var cube71 = new THREE.Mesh( geometry, material );
+			cube71.position.z -= 0.5;
+			cube71.position.y += 0.75;
+			cube71.scale.x -= 0.25;
+			cube71.scale.y -= 0.25;
+			cube71.scale.z -= 0.25;*/
 			
-			var cube50 = cube49.clone();
-			cube50.position.z -= 0.15;
-			cube50.position.y += 0.5;
-			cube50.scale.x -= 0.15;
-			cube50.scale.y -= 0.15;
-			cube50.scale.z -= 0.15;
+			var cube49 = new THREE.Mesh( geometry, material );
+			cube49.position.z -= 0.35;
+			cube49.position.y += 0.75;
+			cube49.scale.x -= 0.35;
+			cube49.scale.y -= 0.35;
+			cube49.scale.z -= 0.35;
 			
-			var cube51 = cube50.clone();
-			cube51.position.z -= 0.15;
-			cube51.position.y += 0.5;
-			cube51.scale.x -= 0.15;
-			cube51.scale.y -= 0.15;
-			cube51.scale.z -= 0.15;
+			var cube50 = new THREE.Mesh( geometry, material );
+			cube50.position.z -= 0.35;
+			cube50.position.y += 0.75;
+			cube50.scale.x -= 0.35;
+			cube50.scale.y -= 0.35;
+			cube50.scale.z -= 0.35;
+			
+			var cube51 = new THREE.Mesh( geometry, material );
+			cube51.position.z -= 0.35;
+			cube51.position.y += 0.75;
+			cube51.scale.x -= 0.35;
+			cube51.scale.y -= 0.35;
+			cube51.scale.z -= 0.35;
 			// fine coda cane
 			
 			cube.castShadow = true;
@@ -357,7 +476,7 @@
 			scene.add( cube20 );
 			scene.add( cube21, cube22, cube23, cube24 );
 			scene.add( cube25, cube26, cube27, cube28 );
-			scene.add( cube29, cube30, cube31, cube32 );
+			scene.add( cube29, cube30 );
 			scene.add( cube33, cube34, cube35, cube36, cube37, cube38 );
 			scene.add( cube39 );
 			scene.add( cube40 );
@@ -367,11 +486,32 @@
 			scene.add( cube44 );
 			scene.add( cube45 );
 			scene.add( cube46 );
-			scene.add( cube47 );
-			scene.add( cube48 );
-			scene.add( cube49 );
-			scene.add( cube50 );
-			scene.add( cube51 );
+			cube46.add( cube47 );
+			cube47.add( cube48 );
+			cube48.add( cube49 );
+			cube49.add( cube50 );
+			cube50.add( cube51 );
+			scene.add( cube52 );
+			scene.add( cube53 );
+			cube53.add( cube54 );
+			cube53.add( cube55 );
+			cube53.add( cube31 );
+			cube53.add( cube56 );
+			cube53.add( cube57 );
+			scene.add( cube58 );
+			cube58.add( cube59 );
+			cube58.add( cube60 );
+			cube58.add( cube32 );
+			cube58.add( cube61 );
+			cube58.add( cube62 );
+			scene.add( cube63 );
+			scene.add( cube64 );
+			scene.add( cube65 );
+			scene.add( cube66 );
+			scene.add( cube67 );
+			scene.add( cube68 );
+			scene.add( cube69 );
+			scene.add( cube70 );
 			
 			hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
 			hemiLight.color.setHSL( 0.6, 1, 0.6 );
