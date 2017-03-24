@@ -43,7 +43,7 @@
 			camera.position.set(2,2,2);
 			camera.lookAt( new THREE.Vector3(0,0,0));
 						
-			c = 60; // per ora 10, ma in caso verrà cambiato
+			c = 9; // per ora 10, ma in caso verrà cambiato
 			v = 1;
 
 			var geometry = new THREE.BoxGeometry(1,1,1);
@@ -417,14 +417,14 @@
 			//cube.rotation.x +=v * 0.5;
 			//cube.rotation.y +=v * 0.5;
 			switchSide();
-			cube46.rotation.z +=v * 0.005;
+			cube46.rotation.z +=v * 0.05;
 		}	
 			
 		function switchSide(){
 			c=c-1;
 			if(c<0){
 				v = v * (-1);
-				c = 120;
+				c = 18;
 			}
 		}
 
