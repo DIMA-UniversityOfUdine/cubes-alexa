@@ -1,6 +1,6 @@
-Log dei cambiamenti e/o modifiche effettuate
+Log dei cambiamenti e/o modifiche effettuate.
 
-22/03 14:10 - Inserimento texture fallito, viene proiettata una texture nera non quella caricata (nemmeno quella di default)
+22/03 14:10 - Inserimento texture fallito, viene proiettata una texture nera non quella caricata (nemmeno quella di default).
 
 Problema risolto, Chrome dava problemi; utilizzare il file su FireFox ha risolto il problema (anche Edge non dava problemi).
 
@@ -12,4 +12,6 @@ Soggetto realizzato in Three.js (poteva essere usato un for per una piu' rapida 
 
 Animazione nella branch ad essa relativa completata. Per il momento muove solo la coda, si provvedera' ad aggiungere un'ulteriore animazione dopo aver apportato le dovuto modifiche al soggetto (le orecchie andranno ritoccate).
 
-Miglioramento orecchie, coda, zampe, e altri particolari
+Miglioramento orecchie, coda, zampe, e altri particolari.
+
+Cane realizzato in Three.js che muove coda e orecchie.
