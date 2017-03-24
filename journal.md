@@ -11,3 +11,5 @@ Soggetto realizzato in Unity.
 Soggetto realizzato in Three.js (poteva essere usato un for per una piu' rapida creazione ma per il momento ogni cubo e' stato creato singolarmente)
 
 Animazione nella branch ad essa relativa completata. Per il momento muove solo la coda, si provvedera' ad aggiungere un'ulteriore animazione dopo aver apportato le dovuto modifiche al soggetto (le orecchie andranno ritoccate).
+
+Miglioramento orecchie, coda, zampe, e altri particolari
