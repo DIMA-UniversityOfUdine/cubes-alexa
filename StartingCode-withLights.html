@@ -54,7 +54,7 @@
 			var cube5 = cube.clone();			
 			
 			
-			
+			//inizio corpo
 			cube.position.y += 1;
 			cube.scale.x = 3;
 			cube.scale.y = 3;
@@ -64,7 +64,9 @@
 			cube1.scale.x = 3;
 			cube1.scale.y = 3;
 			cube1.scale.z = 3;
+			//fine corpo
 			
+			// inizio zampe
 			cube2.position.set (-1, 0, 2) ;
 			
 			cube3.position.set (1, 0, 2) ;
@@ -78,8 +80,11 @@
 			cube5.position.y += -0.25;
 			cube5.position.z += -0.25;
 			cube5.scale.set (0.75, 0.5, 0.5);
-
-            		var cube6 = new THREE.Mesh( geometry, material );
+			//fine zampe
+			
+			
+			//inizio corpo lato dx
+           		var cube6 = new THREE.Mesh( geometry, material );
 			cube6.position.x += 1.75;
 			cube6.position.y += 2;
 			cube6.scale.set (0.5, 1, 3);
@@ -105,7 +110,9 @@
 			cube11.position.y += 0.55;
 			cube11.position.x += -0.13;
 			cube11.scale.set (0.25, 0.25, 3);
+			//fine lato dx
 			
+			//inizio collo/testa
 			var cube12 = new THREE.Mesh( geometry, material );
 			cube12.position.y += 5.75;
 			cube12.position.z += 0.25;
@@ -210,14 +217,19 @@
 			cube30.position.y -= 0.15;
 			cube30.scale.set (0.75, 0.35, 2.75);
 			
+			//orecchio dx
 			var cube31 = cube26.clone();
 			cube31.position.x += 0.65;
 			cube31.scale.set (0.35, 1, 1);
 			
+			//orecchio sx
 			var cube32 = cube27.clone();
 			cube32.position.x -= 0.65;
 			cube32.scale.set (0.35, 1, 1);
 			
+			//fine testa
+			
+			//inizio lato sx
 			var cube33 = new THREE.Mesh( geometry, material );
 			cube33.position.x -= 1.75;
 			cube33.position.y += 2;
@@ -244,37 +256,47 @@
 			cube38.position.y += 0.55;
 			cube38.position.x += 0.13;
 			cube38.scale.set (0.25, 0.25, 3);
+			// fine lato sx
 			
+			//inizio parte dietro 1
 			var cube39 = new THREE.Mesh( geometry, material );
 			cube39.position.z -= 2;
+			cube39.position.y += 1;
 			cube39.scale.set (3, 3, 1);
 			
 			var cube40 = cube39.clone();
 			cube40.position.y += 2;
+			cube40.scale.y -= 0.75;
 			
 			var cube41 = cube40.clone();
-			cube41.position.y += 2;
+			cube41.position.y += 1.5;
 			cube41.scale.x -= 0.5;
-			cube41.scale.y -= 0.5;
+			cube41.scale.y -= 1.25;
+			// fine parte dietro 1
 			
+			//inizio parte dietro 2
 			var cube42 = new THREE.Mesh( geometry, material );
 			cube42.position.z -= 3;
+			cube42.position.y += 0.5;
 			cube42.scale.set (2, 2, 1);
 			
 			var cube43 = cube42.clone();
 			cube43.position.y += 2;
 			
 			var cube44 = cube43.clone();
-			cube44.position.y += 1.5;
+			cube44.position.y += 1.25;
 			cube44.scale.x -= 0.5;
-			cube44.scale.y -= 0.5;
+			cube44.scale.y -= 1.25;
+			//fine parte dietro 2
 			
+			//base della coda cane
 			var cube45 = new THREE.Mesh( geometry, material );
 			cube45.position.z -= 3.75;
 			cube45.position.y += 1.5;
 			cube45.scale.set (2, 2, 0.5);
 			
-			var cube46 = new THREE.Mesh( geometry, material );
+			//inizio coda cane
+			var cube46 = new THREE.Mesh( geometry, material ); 
 			cube46.position.z -= 4.25;
 			cube46.position.y += 1.5;
 			cube46.scale.set (1, 1, 0.75);
@@ -302,11 +324,12 @@
 			cube50.scale.z -= 0.15;
 			
 			var cube51 = cube50.clone();
-			cube50.position.z -= 0.15;
-			cube50.position.y += 0.5;
-			cube50.scale.x -= 0.15;
-			cube50.scale.y -= 0.15;
-			cube50.scale.z -= 0.15;
+			cube51.position.z -= 0.15;
+			cube51.position.y += 0.5;
+			cube51.scale.x -= 0.15;
+			cube51.scale.y -= 0.15;
+			cube51.scale.z -= 0.15;
+			// fine coda cane
 			
 			cube.castShadow = true;
 			cube.receiveShadow = true;
