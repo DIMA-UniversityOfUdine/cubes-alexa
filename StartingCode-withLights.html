@@ -553,7 +553,24 @@
 			
 		}
 		
+		function rotateCube(){
+			//cube.rotation.x +=v * 0.5;
+			//cube.rotation.y +=v * 0.5;
+			switchSide();
+			cube46.rotation.z +=v * 0.05;
+		}	
+			
+		function switchSide(){
+			c=c-1;
+			if(c<0){
+				v = v * (-1);
+				c = 18;
+			}
+		}
+
+
 		function Update() {
+			rotateCube();
 			requestAnimationFrame( Update );
 			controls.update();  
 			stats.update();
