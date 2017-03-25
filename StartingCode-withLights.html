@@ -25,12 +25,12 @@
 		
 		<script>
 		
-		var cube46, cube53, cube58, scene, camera, renderer, controls, stats;
-		var c, v; // c = counter che verrà usato per l'animazione; v = verso (valore 1 o -1)
+		var cube25, cube46, cube53, cube58, scene, camera, renderer, controls, stats;
+		var c, v, rotSpeed; // c = counter che verrà usato per l'animazione; v = verso (valore 1 o -1)
 
 		function Start() {
 			scene = new THREE.Scene();
-			camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+			camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
 			renderer = new THREE.WebGLRenderer( {antialias: true} );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			renderer.setClearColor( 0xf0f0f0 );
@@ -40,11 +40,12 @@
 			renderer.shadowMap.enabled = true;
 			document.body.appendChild( renderer.domElement );
 			
-			camera.position.set(2,2,15);
+			camera.position.set(4,6,15);
 			camera.lookAt( new THREE.Vector3(0,0,0));
 						
 			c = 9; // per ora 10, ma in caso verrà cambiato
 			v = 1;
+			rotSpeed = 0.01;
 
 			var geometry = new THREE.BoxGeometry(1,1,1);
 			var texture = THREE.ImageUtils.loadTexture('textures/fur.jpg');
@@ -122,7 +123,7 @@
 			
 			
 			//inizio corpo lato dx
-           		var cube6 = new THREE.Mesh( geometry, material );
+           	var cube6 = new THREE.Mesh( geometry, material );
 			cube6.position.x += 1.75;
 			cube6.position.y += 2;
 			cube6.scale.set (0.5, 1, 3);
@@ -224,7 +225,7 @@
 			cube24.position.z -= 0.1;
 			
 			// tra gli occhi
-			var cube25 = new THREE.Mesh( geometry, material );
+			cube25 = new THREE.Mesh( geometry, material );
 			cube25.position.y += 8;   //8
 			cube25.position.z += 1.15;
 			cube25.scale.set (1.2, 0.75, 3.25);
@@ -450,8 +451,116 @@
 			cube51.scale.z -= 0.35;
 			// fine coda cane
 			
+			// ombre
 			cube.castShadow = true;
 			cube.receiveShadow = true;
+			cube1.castShadow = true;
+			cube1.receiveShadow = true;
+			cube2.castShadow = true;
+			cube2.receiveShadow = true;
+			cube3.castShadow = true;
+			cube3.receiveShadow = true;
+			cube4.castShadow = true;
+			cube4.receiveShadow = true;
+			cube5.castShadow = true;
+			cube5.receiveShadow = true;
+			cube6.castShadow = true;
+			cube6.receiveShadow = true;
+			cube7.castShadow = true;
+			cube7.receiveShadow = true;
+			cube8.castShadow = true;
+			cube8.receiveShadow = true;
+			cube9.castShadow = true;
+			cube9.receiveShadow = true;
+			cube10.castShadow = true;
+			cube10.receiveShadow = true;
+			cube11.castShadow = true;
+			cube11.receiveShadow = true;
+			cube12.castShadow = true;
+			cube12.receiveShadow = true;
+			cube13.castShadow = true;
+			cube13.receiveShadow = true;
+			cube14.castShadow = true;
+			cube14.receiveShadow = true;
+			cube15.castShadow = true;
+			cube15.receiveShadow = true;
+			cube16.castShadow = true;
+			cube16.receiveShadow = true;
+			cube17.castShadow = true;
+			cube17.receiveShadow = true;
+			cube18.castShadow = true;
+			cube18.receiveShadow = true;
+			cube19.castShadow = true;
+			cube19.receiveShadow = true;
+			cube20.castShadow = true;
+			cube20.receiveShadow = true;
+			cube21.castShadow = true;
+			cube21.receiveShadow = true;
+			cube22.castShadow = true;
+			cube22.receiveShadow = true;
+			cube23.castShadow = true;
+			cube23.receiveShadow = true;
+			cube24.castShadow = true;
+			cube24.receiveShadow = true;
+			cube25.castShadow = true;
+			cube25.receiveShadow = true;
+			cube26.castShadow = true;
+			cube26.receiveShadow = true;
+			cube27.castShadow = true;
+			cube27.receiveShadow = true;
+			cube28.castShadow = true;
+			cube28.receiveShadow = true;
+			cube29.castShadow = true;
+			cube29.receiveShadow = true;
+			cube30.castShadow = true;
+			cube30.receiveShadow = true;
+			cube31.castShadow = true;
+			cube31.receiveShadow = true;
+			cube32.castShadow = true;
+			cube32.receiveShadow = true;
+			cube33.castShadow = true;
+			cube33.receiveShadow = true;
+			cube34.castShadow = true;
+			cube34.receiveShadow = true;
+			cube35.castShadow = true;
+			cube35.receiveShadow = true;
+			cube36.castShadow = true;
+			cube36.receiveShadow = true;
+			cube37.castShadow = true;
+			cube37.receiveShadow = true;
+			cube38.castShadow = true;
+			cube38.receiveShadow = true;
+			cube39.castShadow = true;
+			cube39.receiveShadow = true;
+			cube40.castShadow = true;
+			cube40.receiveShadow = true;
+			cube41.castShadow = true;
+			cube41.receiveShadow = true;
+			cube42.castShadow = true;
+			cube42.receiveShadow = true;
+			cube43.castShadow = true;
+			cube43.receiveShadow = true;
+			cube44.castShadow = true;
+			cube44.receiveShadow = true;
+			cube45.castShadow = true;
+			cube45.receiveShadow = true;
+			cube46.castShadow = true;
+			cube46.receiveShadow = true;
+			cube47.castShadow = true;
+			cube47.receiveShadow = true;
+			cube48.castShadow = true;
+			cube48.receiveShadow = true;
+			cube49.castShadow = true;
+			cube49.receiveShadow = true;
+			cube50.castShadow = true;
+			cube50.receiveShadow = true;
+						
+			/*
+			for(i=1; i<=50 ;i++){
+				cube[i].castShadow = true;
+				cube[i].receiveShadow = true;
+			}
+			*/
 			
 			scene.add( cube );
 			scene.add( cube1 );
@@ -547,8 +656,8 @@
 			// uncomment if you need to draw coordinate axes when building the scene
 			//Coordinates.drawAllAxes();
 			
-			controls = new THREE.OrbitControls( camera );
-			controls.addEventListener( 'change', Render );
+			//controls = new THREE.OrbitControls( camera );
+			//controls.addEventListener( 'change', Render );
 			
 			
 		}
@@ -570,11 +679,19 @@
 			}
 		}
 
-
+		function movingCamera(){
+			camera.position.x = camera.position.x * Math.cos(rotSpeed) - camera.position.z * Math.sin(rotSpeed);
+			camera.position.z = camera.position.z * Math.cos(rotSpeed) + camera.position.x * Math.sin(rotSpeed);
+			//camera.position.y = camera.position.y * Math.cos(rotSpeed*-10);
+			camera.lookAt(cube25.position);
+		}
+		
 		function Update() {
 			rotateCube();
+			//
+			movingCamera();
 			requestAnimationFrame( Update );
-			controls.update();  
+			//controls.update();  
 			stats.update();
 			Render();
 		}
