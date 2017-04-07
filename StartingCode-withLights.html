@@ -693,11 +693,11 @@
 			stats.domElement.style.top = '0px';
 			document.body.appendChild( stats.domElement );
 			
-			// uncomment if you need to draw coordinate axes when building the scene
+			//uncomment if you need to draw coordinate axes when building the scene
 			//Coordinates.drawAllAxes();
 			
-			//controls = new THREE.OrbitControls( camera );
-			//controls.addEventListener( 'change', Render );
+			controls = new THREE.OrbitControls( camera );
+			controls.addEventListener( 'change', Render );
 			
 			
 		}
@@ -719,19 +719,19 @@
 			}
 		}
 
-		function movingCamera(){
+		/*function movingCamera(){
 			camera.position.x = camera.position.x * Math.cos(rotSpeed) - camera.position.z * Math.sin(rotSpeed);
 			camera.position.z = camera.position.z * Math.cos(rotSpeed) + camera.position.x * Math.sin(rotSpeed);
 			//camera.position.y = camera.position.y * Math.cos(rotSpeed*-10);
 			camera.lookAt(cube25.position);
-		}
+		}*/
 		
 		function Update() {
 			rotateCube();
 			//
-			movingCamera();
+			//movingCamera();
 			requestAnimationFrame( Update );
-			//controls.update();  
+			controls.update();  
 			stats.update();
 			Render();
 		}
